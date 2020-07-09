@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <img src="flower.jpg" alt="Flower" width="50px" height="50px" onmouseover="bigImage(src)">
+    <img src="hamster.jpg" alt="Hamster" width="50px" height="50px" onmouseover="bigImage(src)">
+    <img src="lotus.jpg" alt="Lotus" width="50px" height="50px" onmouseover="bigImage(src)">
+    <img src="view.jpg" alt="View" width="50px" height="50px" onmouseover="bigImage(src)">
+    
+    <p><img src="" style="width: auto;height: auto;" id="new"></p> 
+
+    <script>
+        function bigImage(obj) {
+            //document.getElementById("new").visibility=visible;
+            document.getElementById("new").src=obj;
+        }
+    </script>
+    
+</body>
+</html>

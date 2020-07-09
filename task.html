@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+        #task{
+            width: 200px;
+            height: 20px;
+            border-radius: 50px;
+        }
+        li{
+            border: 1px solid black;
+            list-style-type: none;
+            width: 200px;;
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Today Task</h1>
+    <label for="task-name">Task Name : </label>
+    <input type="text" id="task">
+    <button type="button" onclick="task_list()">Add</button><br><br>
+    <b>Task List</b>
+    <p id="show_list"></p>
+
+    <script>
+        function task_list(){
+            var textbox = document.getElementById("task").value;
+
+            var ul = document.createElement("ul");
+            var li = document.createElement("li");
+            var i = document.createElement("i");
+
+            i.setAttribute("class", "fa fa-remove");
+            //i.onclick = "remove()";
+            i.style.float = "right";
+            i.style.width = "25px";
+            i.style.height = "25px";
+            i.style.borderRadius = "50%";
+            i.style.backgroundColor = "red";
+            i.style.textAlign= "center";
+            i.addEventListener("click", removeFun);
+            
+            function removeFun(){
+                ul.removeChild(li);
+            }
+
+            li.appendChild(document.createTextNode(textbox));
+            li.appendChild(i);
+            ul.appendChild(li);
+
+            document.getElementById("show_list").appendChild(ul);
+        }
+    </script>
+</body>
+</html>
