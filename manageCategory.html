@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script>
+        var catList=[];
+        if(localStorage.getItem("category_list")!=null){
+			var cat_string = localStorage.getItem("category_list");
+		    catList=JSON.parse(cat_string);
+		}
+        $(document).ready(function(){
+            $("#addCat").click(function(){
+                var cname = $("#cat").val();
+                var cat = {catName:cname};
+                catList.push(cat);
+                var json_string = JSON.stringify(catList);
+                localStorage.setItem("category_list",json_string);
+                $("#cat").val("");
+                alert(json_string);
+            });
+        });
+    </script>
+    <style>
+        body {
+            background-color: forestgreen;
+            margin-top: 50px;
+            margin-left: 50px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        label {
+            color: gold;
+        }
+        input{
+            width: 200px;
+            height: 35px;
+        }
+    </style>
+
+</head>
+<body>
+    <label for="cat">Enter New Category Name : </label>&nbsp;&nbsp;
+    <input type="text" id="cat"><br><br>
+    <button type="button" class=" bg-info" id="addCat" style="margin-left: 100px;">Add</button>
+    &nbsp;&nbsp;&nbsp;
+    <a href="FoodMainPage.html" class="text-danger">Home</a>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script>
+        var foodList=[];
+        var catList=[];
+        if(localStorage.getItem("food_list")!=null){
+			var food_string = localStorage.getItem("food_list");
+		    foodList=JSON.parse(food_string);
+		}
+
+        $(document).ready(function(){
+            $("#addFood").click(function(){
+                var iname=$("#item_name").val();
+                var iprice=$("#item_price").val();
+                var iurl=$("#imageList option:selected").val();
+                var idesc=$("#item_desc").val();
+                var icat=$("#item_cat option:selected").text();
+                var food={itemName:iname,itemPrice:iprice,itemUrl:iurl,itemDesc:idesc,itemCat:icat};
+                foodList.push(food);
+                var json_string= JSON.stringify(foodList);
+                localStorage.setItem("food_list",json_string);
+                //var jobj=JSON.parse(test_json);
+                alert(json_string);
+            });
+
+            if(localStorage.getItem("category_list")!=undefined){
+			    catList=JSON.parse(localStorage.getItem("category_list"));
+                catList.forEach(function(val,i){
+                    $("#item_cat").append('<option>'+val.catName+'</option>');
+            });
+            }
+        });
+    </script>
+    <style>
+        body {
+            background-color: forestgreen;
+        }
+        label {
+            color: gold;
+        }
+        input{
+            width: 200px;
+            height: 37px;
+        }
+        #food{
+            font-family: Georgia,'Times New Roman',Times,serif;
+            display: grid;
+            grid-template-columns: auto auto;
+            width: 500px;
+            height: 200px;
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;            
+        }
+    </style>
+
+</head>
+<body>
+    <div id="food">
+        <div style="line-height: 2;">
+            <label for="item_name">Enter New Item Name : </label><br>
+            <label for="item_price">Enter New Item Price : </label><br>
+            <label for="item_url">Enter New Item Image Url : </label><br>
+            <label for="item_desc">Enter New Item Description : </label><br>
+            <label for="item_cat">Enter New Item Category : </label><br>
+        </div>
+        <div style="line-height: 2;">
+            <input type="text" id="item_name"><br>
+            <input type="text" id="item_price"><br>
+            <select style="width: 200px;height: 37px;" id="imageList">
+                <option value="apple.jpg">Apple Juice</option>
+                <option value="beef.jpg">Beef Meal</option>
+                <option value="blueberryCake.jpg">BlueBerry Cake</option>
+                <option value="carrotJuice.jpg">Carrot Juice</option>
+                <option value="chesePizza.jpg">Chese Pizza</option>
+                <option value="chocolateCake.jpg">Chocolate Cake</option>
+                <option value="chocolateIceCream.jpg">Chocolate Icecream</option>
+                <option value="fishfryDinner.jpg">Fish Fry Meal</option>
+                <option value="fruitCake.jpg">Fruit Cake</option>
+                <option value="italianSteak.jpg">Italian Steak Meal</option>
+                <option value="kiwiJuice.jpg">Kiwi Juice</option>
+                <option value="limeIcecream.jpg">Lime Icecream</option>
+                <option value="mangoJuice.jpg">Mango Juice</option>
+                <option value="mauritiusDinner.jpg">Mauritius Dinner</option>
+                <option value="meatballPizza.jpg">Meatball Pizza</option>
+                <option value="orangeJuice.jpg">Orange Juice</option>
+                <option value="pork.jpg">Pork Meal</option>
+                <option value="seafoodDinner.jpg">Seafood Meal</option>
+                <option value="seafoodPizza.jpg">Seafood Pizza</option>
+                <option value="strawberryJuice.jpg">Strawberry Juice</option>
+                <option value="sundaeIcecream.jpg">Sundae Icecream</option>
+                <option value="watermelon.jpg">watermelon Juice</option>
+            </select><br>
+            <input type="text" id="item_desc"><br>
+            <select id="item_cat" style="width: 200px;height:37px;">
+            </select><br>
+        </div>
+        <div style="margin-left:auto;margin-right: auto;">
+            <button type="button" id="addFood" class="bg-info">Add</button>&nbsp;&nbsp;&nbsp;
+            <h5 style="display: inline;"><a href="FoodMainPage.html" class="text-body">Home</a></h5>
+        </div>
+    </div>
+</body>
+</html>
