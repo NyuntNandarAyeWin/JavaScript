@@ -16,8 +16,8 @@
         function showFoodList(flist){
             flist.forEach(function(val,i){
                 $("#foodList").append(
-                    '<div class="card" style="width:250px">'
-                        +'<img class="card-img-top" src="'+val.itemUrl+'" alt="item image">'
+                    '<div class="card" style="width:250px;margin-bottom:5px;">'
+                        +'<img class="card-img-top" src="'+val.itemUrl+'" alt="item image" style="width: 249px;height: 200px;">'
                         +'<div class="card-body">'
                             +'<h4 class="card-title">'+val.itemName+'</h4>'
                             +'<p class="card-text">'+val.itemDesc+'</p>'
@@ -43,7 +43,7 @@
                 selectedFood.forEach(function(val,i) {
                     $("#foodList").append(
                         '<div class="card" style="width:250px">'
-                            +'<img class="card-img-top" src="'+val.itemUrl+'" alt="item image">'
+                            +'<img class="card-img-top" src="'+val.itemUrl+'" alt="item image" style="width: 249px;height: 200px;">'
                             +'<div class="card-body">'
                                 +'<h4 class="card-title">'+val.itemName+'</h4>'
                                 +'<p class="card-text">'+val.itemDesc+'</p>'

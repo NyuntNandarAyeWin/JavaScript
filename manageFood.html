@@ -28,8 +28,11 @@
                 foodList.push(food);
                 var json_string= JSON.stringify(foodList);
                 localStorage.setItem("food_list",json_string);
-                //var jobj=JSON.parse(test_json);
                 alert(json_string);
+                $("#item_name").val("");
+                $("#item_price").val("");
+                $("#item_desc").val("");
+                window.location.assign("FoodMainPage.html");
             });
 
             if(localStorage.getItem("category_list")!=undefined){
