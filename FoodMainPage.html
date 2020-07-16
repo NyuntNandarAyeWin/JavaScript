@@ -16,7 +16,7 @@
         function showFoodList(flist){
             flist.forEach(function(val,i){
                 $("#foodList").append(
-                    '<div class="card" style="width:300px">'
+                    '<div class="card" style="width:200px">'
                         +'<img class="card-img-top" src="'+val.itemUrl+'" alt="item image">'
                         +'<div class="card-body">'
                             +'<h4 class="card-title">'+val.itemName+'</h4>'
@@ -151,7 +151,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-3">
+            <div class="col-2">
                 <div class="rounded-sm">
                     <h2 class="mt-4 ml-4 text-warning">OUR MENU
                         <img src="is.jpg" class="rounded-circle" alt="Restaurant Logo" style="width: 60px;height: 60px;">
@@ -162,11 +162,11 @@
                 </div>
             </div>
             <!-- Write your comments here -->
-            <div class="col-sm-5">
+            <div class="col-sm-6">
                 <div class="rounded-sm">
                     <h2 class="mt-4 ml-4 text-warning">Food Item Lists</h2>
                 </div>
-                <div id="foodList" class="list-group list-group-flush">
+                <div id="foodList" style="display: grid;grid-template-columns: auto auto;" class="list-group list-group-flush">
 
                 </div>
             </div>
